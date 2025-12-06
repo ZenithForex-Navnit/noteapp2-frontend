@@ -219,15 +219,34 @@ export default function Dashboard() {
     // Alag color dena ho to spread operator use kar sakte ho
     const addButtonStyle = { ...buttonStyle, backgroundColor: "#28a745", color: "white" }; // Green
     const editButtonStyle = { ...buttonStyle, backgroundColor: "#ffc107", color: "black" }; // Yellow
-
-
-
-
+    const handleSignout = () => {
+        // Clear stored session data
+        localStorage.removeItem("token");
+        localStorage.removeItem("userRole");
+        localStorage.removeItem("currentUserId");
+        // Optionally, you can redirect the user to the login page or homepage after signout
+        window.location.href = "/login"; // Adjust the path as needed
+    }
     return (
         <div style={containerStyle}>
-            <h1 style={{ fontSize: '2rem', marginBottom: '20px', color: '#0070f3' }}>
-                📝 Notes Dashboard
-            </h1>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '20px'
+            }}>
+                <h1 style={{ fontSize: '2rem', color: '#0070f3', margin: 0 }}>
+                    📝 Notes Dashboard
+                </h1>
+
+                <button
+                    type="button"
+                    onClick={handleSignout}
+                    style={editButtonStyle}
+                >
+                    Signout
+                </button>
+            </div>
 
             {/* Displaying the ACTUAL logged-in role (loaded from storage) */}
             <div style={roleDisplayContainerStyle}>
