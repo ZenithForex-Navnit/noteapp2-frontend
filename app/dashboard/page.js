@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 
 // --- Configuration and API Helpers (Local Definitions) ---
-const API_BASE_URL = "http://127.0.0.1:8000";
+import * as Common from "../Common"
+const API_BASE_URL = Common.API_BASE_URL;
+// 
 // MOCK_CURRENT_USER_ID is used for frontend logic (e.g., hiding the Delete button 
 // if the user is not the owner). Must align with the mock ID in the FastAPI backend (main.py).
 // NOTE: In a real app, this should also be loaded from stored session data, not hardcoded.

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-const API_BASE_URL = "http://127.0.0.1:8000";
+import * as Common from "../Common"
+const API_BASE_URL = Common.API_BASE_URL;
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -28,8 +28,8 @@ export default function LoginPage() {
 
                 // --- THIS IS WHERE THE REQUIRED CODE GOES ---
                 // 1. Store the user's role
-                localStorage.setItem('userRole', data.role);
-                // 2. Store the user's ID
+                console.log(data);
+                localStorage.setItem('userRole', data.role)
                 localStorage.setItem('currentUserId', data.user_id);
                 localStorage.setItem("token", data.token);
 

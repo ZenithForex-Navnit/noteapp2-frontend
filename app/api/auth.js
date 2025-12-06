@@ -1,5 +1,6 @@
 // NOTE: Replace with your actual FastAPI backend URL
-const API_BASE_URL = "http://127.0.0.1:8000"; 
+import * as Common from "../Common"
+const API_BASE_URL = Common.API_BASE_URL;
 
 export async function login(email, password) {
   const response = await fetch(`${API_BASE_URL}/signin?email=${email}&password=${password}`, {
@@ -25,8 +26,6 @@ export async function fetchNotes() {
 }
 // NOTE: These functions would ideally be in a separate API service file, 
 // but we include them here for context.
-
-// API_BASE_URL is assumed to be "http://127.0.0.1:8000"
 
 export async function createNote(title, description) {
   const response = await fetch(`${API_BASE_URL}/notes`, {
